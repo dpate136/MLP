@@ -40,17 +40,17 @@ mlp.fit(X_train,y_train)
 
 y_pred = mlp.predict(X_test).reshape(-1,1)
 
-pred = scaler.inverse_transform(y_pred)
-pred2 = scaler.inverse_transform(y_test)
+inv_pred = scaler.inverse_transform(y_pred)
+inv_test = scaler.inverse_transform(y_test)
 
 from sklearn.metrics import mean_squared_error
 from math import sqrt
-rms1 = sqrt(mean_squared_error(pred2, pred))
+rms1 = sqrt(mean_squared_error(inv_pred, inv_test))
 
 #mape
-def mean_absolute_percentage_error(pred2, pred): 
-    pred2, pred = np.array(pred2), np.array(pred)
-mape1 = np.mean(np.abs((pred2 - pred) / pred2)) * 100
+def mean_absolute_percentage_error(inv_pred, inv_test): 
+    inv_pred, inv_test = np.array(inv_test), np.array(inv_pred)
+mape1 = np.mean(np.abs((inv_pred, inv_test) / inv_test)) * 100
 
-plt.plot(pred, pred2, color = 'r')
+plt.plot(inv_test, inv_pred, lable = "actual vs forecast")
 
