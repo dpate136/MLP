@@ -61,7 +61,7 @@ def compute_mae(y, ypred):
 
 # train MLP model, and get validation set performance(ANN)
 from sklearn.neural_network import MLPRegressor
-def ann_mlp_mae(hl, a, lr, mi):
+def get_mlp_mae(hl, a, lr, mi):
     model = MLPRegressor(hidden_layer_sizes=hl, alpha=a, learning_rate_init=lr, max_iter=mi)
     model.fit(X_train, y_train)
     pred_val = model.predict(X_test)
