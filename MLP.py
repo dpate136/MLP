@@ -34,6 +34,7 @@ dataset.set_index('date', inplace = True)
 dataset.hour = dataset.hour.astype('category')
 dataset.weekday = dataset.weekday.astype('category')
 dataset.month = dataset.month.astype('category')
+dataset.Holiday = dataset.Holiday.astype('category')
 
 #splitting dataset into X(dependet variables) and Y(independent variable)
 X = dataset.loc[:,dataset.columns != "Load"]
